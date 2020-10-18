@@ -9,7 +9,7 @@ using namespace cv;
 int main()
 {
 	int i, j;
-	Mat srcimg = imread("C://Users//86150//Desktop//2.jpg");
+	Mat srcimg = imread("2.jpg");
 	Mat grayimg, binaryimg;
 	cvtColor(srcimg, grayimg, CV_BGR2GRAY);
 	threshold(grayimg, binaryimg, 90, 255, THRESH_OTSU);

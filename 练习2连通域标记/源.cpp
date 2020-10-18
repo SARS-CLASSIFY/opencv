@@ -9,7 +9,7 @@ using namespace cv;
 int main()
 {
 	int i,j;
-	Mat srcimg = imread("C://Users//86150//Desktop//1.jpg");
+	Mat srcimg = imread("1.jpg");
 	Mat grayimg, binaryimg;
 	Mat labels,stats,centroids;
 	Mat outputimg;
