@@ -32,7 +32,7 @@ int main()
 
 
 		//using medidan filtering to smooth the skin
-		medianBlur(maskimg,outimg,17);//smooth
+		medianBlur(maskimg,outimg,11);//smooth
 
 		//final outputimg
 		addWeighted(outimg, 1, opposit_maskimg, 1, 0, finalimg);
