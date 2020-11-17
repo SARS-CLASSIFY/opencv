@@ -5,6 +5,7 @@
 using namespace cv;
 using namespace std;
 
+
 int main()
 {
 	VideoCapture capture(0);
