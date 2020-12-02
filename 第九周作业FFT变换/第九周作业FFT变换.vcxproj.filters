@@ -15,13 +15,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="dark.h">
+    <ClInclude Include="dip-class-demos\applicantion.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="dip-class-demos\funtions.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dip-class-demos\stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dip-class-demos\targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dip-class-demos\applicantion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dip-class-demos\dip-class-demos.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dip-class-demos\funtions.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dip-class-demos\stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
