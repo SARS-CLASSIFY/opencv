@@ -16,28 +16,29 @@ int main()
 	Mat dst,dstgray,dst1;
 	src.copyTo(dst);
 
-	creat_Lut(Lut, 1/6.5);
+	creat_Lut(Lut, 1/2.5);
 	MyGammaCorrection(src, dst, Lut);
 	cvtColor(dst, dstgray, CV_BGR2GRAY);//×ª»Ò¶ÈÍ¼
 
 	dstgray.copyTo(dst1);
 
 
-	/**
+	
 	CV_Assert(src.depth() != sizeof(uchar));
 	MatIterator_<uchar> itx, endx;
 	for (itx = dst1.begin<uchar>(), endx = dst1.end<uchar>(); itx != endx; itx++) {
-		if (*itx >= 38 && *itx <= 44) {
+		if (*itx >= 62 && *itx <= 64) {
 			*itx = 255;
 		}
 		else {
 			*itx = 0;
 		}
 
-	}*/
-
+	}
+	namedWindow("dst1", WINDOW_NORMAL);
 	imshow("src", src);
 	imshow("dst", dst);
+	imshow("dst1", dst1);
 
 	waitKey(0);
 	return 0;
