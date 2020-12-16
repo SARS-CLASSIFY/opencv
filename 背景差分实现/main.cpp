@@ -14,13 +14,13 @@ int main()
 
 
 		capture >> myframe;
-		cvtColor(myframe, grayframe, CV_BGR2BGRA);
+		cvtColor(myframe, grayframe, CV_BGR2GRAY);
 		if (cnt == 0) {
 			grayframe.copyTo(bgMat);
 		}
 		else {
 			absdiff(grayframe, bgMat, subMat);
-
+			
 			threshold(subMat, bny_subMat, 50, 255, CV_THRESH_BINARY);
 			imshow("subMat", subMat);
 			imshow("src", myframe);
