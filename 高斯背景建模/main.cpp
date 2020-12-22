@@ -15,7 +15,7 @@ int main()
 	}
 
 	int nBG = 200; //读取的用于建模的帧数
-	float wVar = 1.0;//方差权重，用于二值化
+	float wVar = 1.2;//方差权重，用于二值化
 	int cnt = 0;//记录当前帧数
 	cv::Mat frame;
 	cv::Mat meanMat;
