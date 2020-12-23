@@ -82,8 +82,9 @@ float compareImages(cv:: Mat refMat,cv:: Mat plMat)
 int main()
 {
 
-	cv::Mat refMat = imread("hog.jpg", 0);
-
+	cv::Mat refMat1 = imread("hog.jpg");
+	Mat refMat;
+	cv::cvtColor(refMat1, refMat,CV_BGR2GRAY);
 	Mat tempMat;
 
 
@@ -127,9 +128,9 @@ int main()
 
 
 	Rect ta(target.x, target.y, width, high);
-	cv::rectangle(refMat,ta, cv::Scalar(0, 0, 255), 1,1, 0);
+	cv::rectangle(refMat1,ta, cv::Scalar(0, 0, 255), 1,1, 0);
 
-	imshow("result", refMat);
+	imshow("result", refMat1);
 	waitKey(0);
 	return 0;
 
