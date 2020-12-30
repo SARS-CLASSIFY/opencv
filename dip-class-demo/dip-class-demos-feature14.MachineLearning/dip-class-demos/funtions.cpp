@@ -19,16 +19,51 @@ VideoCapture createInput(bool useCamera, std::string videoPath)
 void segColor()
 {
 
-	Mat src= imread("../testImages\\movie.jpg");
+	//Mat src= imread("../testImages\\movie.jpg");
+	VideoCapture read_video =  createInput(0, "../testImages\\dragon.mp4");
+	VideoCapture read_video2 = createInput(0, "../testImages\\bg.mp4");
+	read_video.set(0,6*1000);//从第6秒开始读
+		while (1) {
+			Mat frame,frame2;//定义一个MAT变量，用于存储每一帧的图像
+			Mat img2;
+			read_video >> frame;
+			read_video2 >> frame2;
 
-	Mat mask = Mat::zeros(src.size(), CV_8UC1);
-	createMaskByKmeans(src,mask);
+			int width = frame2.cols;
+			int height = frame2.rows;
+			//Size dsize = Size(width,height);
+			//resize(frame, frame, dsize);//匹配大小
 
-	imshow("src",src);
-	imshow("mask",mask);
+			if (frame2.empty()) {
+				break;
+			}
 
-	waitKey(0);
+			Mat mask = Mat::zeros(frame.size(), CV_8UC1);
+			createMaskByKmeans(frame, mask);
+			
 
+			if (mask.at<uchar>(0, 0) != 0|| mask.at<uchar>(20, 300) != 0) {
+				mask = Mat::zeros(frame.size(), CV_8UC1);
+			}
+
+			frame.copyTo(img2,mask);
+
+			
+			for (int row = 0; row < height; row++) {
+				for (int col = 0; col < width; col++) {
+					if (img2.at<Vec3b>(row, col)[0] != 0) {
+							frame2.at<Vec3b>(row, col)[0] = img2.at<Vec3b>(row, col)[0];
+							frame2.at<Vec3b>(row, col)[1] = img2.at<Vec3b>(row, col)[1];
+							frame2.at<Vec3b>(row, col)[2] = img2.at<Vec3b>(row, col)[2];
+					}
+				}
+			}
+
+			imshow("src", img2);
+			imshow("mask", frame2);
+
+			waitKey(10);
+		}
 }
 
 int kMeansDemo()

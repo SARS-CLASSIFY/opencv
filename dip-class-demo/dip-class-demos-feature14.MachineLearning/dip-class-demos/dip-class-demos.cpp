@@ -13,9 +13,9 @@ int main()
 	//开始计时
 	double start = static_cast<double>(cvGetTickCount());
 
-	//segColor();
+	segColor();
 
-	kMeansDemo();
+	//kMeansDemo();
 
 	//结束计时
 	double time = ((double)cvGetTickCount() - start) / cvGetTickFrequency();
